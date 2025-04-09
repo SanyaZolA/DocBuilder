@@ -3,6 +3,7 @@
     <h1>{{ displayName }}</h1>
 
     <dodvies v-model="formData"/>
+    <MusicTable v-model="formData" />
 
     <div class="formAll">
       <div class="form">
@@ -11,7 +12,7 @@
         <input type="text" v-model="formData.name_licensor" />
 
         <label for="last_name">Псевдоним</label>
-        <input type="text" v-model="formData.last_name" />
+        <input type="text" v-model="formData.last_name" placeholder="Babangida"/>
 
         <label for="age">Возраст</label>
         <input type="number" v-model="formData.age" />
@@ -23,7 +24,7 @@
         <input type="text" v-model="formData.name_licensor" />
 
         <label for="last_name">Псевдоним</label>
-        <input type="text" v-model="formData.last_name" />
+        <input type="text" v-model="formData.last_name" placeholder="Babangida" />
 
         <label for="age">Возраст</label>
         <input type="number" v-model="formData.age" />
@@ -31,7 +32,7 @@
     </div>
 
     <button @click="generateDocument">Создание документа</button>
-  </div>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -42,6 +43,7 @@ import Docxtemplater from 'docxtemplater';
 import { saveAs } from 'file-saver';
 import { documentList } from '../data/documentList'; // Подключаем список документов
 import dodvies from '../views/dodvies.vue';
+import MusicTable from '../views/musicTable.vue';
 
 const route = useRoute(); // Получаем доступ к параметрам маршрута
 
@@ -137,6 +139,12 @@ h2 {
   box-sizing: border-box;
   transition: border-color 0.3s ease;
   background-color: #46454f;
+  color: rgb(187, 167, 167);
+}
+
+input::placeholder {
+  color: #e8c9c957;
+  font-style: italic;
 }
 
 .form input:focus {
