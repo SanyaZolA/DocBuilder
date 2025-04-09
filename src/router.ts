@@ -1,19 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import StartPage from './components/DocumentList.vue'; // Список документов
-import HelloWorld from './components/Doc_Agreement_copyright.vue'; // Страница создания документа
+import DocumentList from './components/DocumentList.vue'; // Список документов
+import Doc_Agreement_copyright from './components/Doc_Agreement_copyright.vue'; // Страница создания документа
 
 
 const routes = [
   {
     path: '/',
-    name: 'StartPage',
-    component: StartPage
+    name: 'DocumentList',
+    component: DocumentList
   },
   {
-    path: '/create/:documentName',
-    name: 'HelloWorld',
-    component: HelloWorld,
-    props: true // Передаем параметры через props
+    path: '/:internalName',
+    name: 'Doc_Agreement_copyright',
+    component: Doc_Agreement_copyright,
   }
 ];
 

@@ -1,24 +1,45 @@
-<!-- src/views/DocumentList.vue -->
 <template>
   <div>
-    <h1>Список шаблонов</h1>
-
+    <h1>Выберите шаблон</h1>
     <ul>
-      <li v-for="(document, index) in documents" :key="index">
-        <router-link :to="`/create/${document.fileName}`">
-          {{ document.displayName }}
-        </router-link>
+      <li v-for="(doc, index) in documentList" :key="index">
+        <button @click="goToDocument(doc.internalName)">
+          {{ doc.displayName }}
+        </button>
       </li>
     </ul>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { documentList } from '../data/documentList'; 
 
-const documents = ref([
-  { fileName: 'Doc_Agreement_copyright.docx', displayName: 'Договор отчуждения авторское' },
-  { fileName: 'Report_Sample.docx', displayName: 'Sample Report' },
-  { fileName: 'Contract_Term_Notice.docx', displayName: 'Contract Term Notice' },
-]);
+const router = useRouter();
+
+const goToDocument = (internalName: string) => {
+  router.push(`/${internalName}`); // Переход на страницу документа
+};
 </script>
+
+
+<style scoped>
+/* Стили для компонента */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+button {
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
+</style>
