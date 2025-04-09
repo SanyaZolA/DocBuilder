@@ -7,6 +7,7 @@
 
     <div class="formAll">
       <div class="form">
+        <hr />
         <h2>Лицензиар</h2>
         <label for="name_licensor">ФИО</label>
         <input type="text" v-model="formData.name_licensor" />
@@ -19,6 +20,7 @@
       </div>
 
       <div class="form">
+        <hr />
         <h2>Лицензит</h2>
         <label for="first_name">ФИО</label>
         <input type="text" v-model="formData.name_licensor" />

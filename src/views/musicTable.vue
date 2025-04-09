@@ -1,7 +1,10 @@
 <template>
     <hr />
+    <button @click="toggleList">Открыть/закрыть таблицу произведений</button>
+    <div v-if="isListVisible" class="work-list">
     <h2>Таблица произведений</h2>
     <div v-for="(work, index) in formData.works" :key="index" class="work-row">
+        <hr />
       <h3>Произведение №{{ index + 1 }}</h3>
   
       <label>Название произведения:</label>
@@ -21,13 +24,19 @@
   
       <label>Общая доля:</label>
       <input type="text" v-model="work.totalShare" placeholder="100%" />
-      <hr />
     </div>
     <button @click="addWork">Добавить ещё песню</button>
+</div>
   </template>
   
   <script setup lang="ts">
   import { ref, watch } from 'vue';
+
+  const isListVisible = ref(false);
+
+const toggleList = () => {
+  isListVisible.value = !isListVisible.value;
+};
   
   const formData = ref({
     works: [
@@ -64,6 +73,9 @@
   </script>
   
   <style scoped>
+  .work-list {
+    border: #45a049 10px solid;
+  }
   .work-row {
     margin-bottom: 20px;
   }
@@ -71,7 +83,7 @@
   input {
     margin-bottom: 10px;
     padding: 6px;
-    width: 100%;
+    width: 90%;
   }
   
   button {
