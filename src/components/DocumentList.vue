@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="document-list">
     <h1>Выберите шаблон</h1>
-    <ul>
-      <li v-for="(doc, index) in documentList" :key="index">
-        <button @click="goToDocument(doc.internalName)">
+    <ul class="document-list__items">
+      <li v-for="(doc, index) in documentList" :key="index" class="document-list__item">
+        <button @click="goToDocument(doc.internalName)" class="document-list__button">
           {{ doc.displayName }}
         </button>
       </li>
@@ -24,22 +24,45 @@ const goToDocument = (internalName: string) => {
 
 
 <style scoped>
-/* Стили для компонента */
-ul {
+/* Стили для документа */
+.document-list {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 50px;
+  color: #d3cdd1;
+}
+
+.document-list__items {
   list-style-type: none;
   padding: 0;
 }
 
-li {
+.document-list__item {
   margin: 10px 0;
 }
 
-button {
-  padding: 10px;
+.document-list__button {
+  padding: 12px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-  background-color: #f0f0f0;
+.document-list__button:hover {
+  background-color: #76b1ed;
+  transform: translateY(-2px);
+}
+
+.document-list__button:focus {
+  outline: none;
 }
 </style>
