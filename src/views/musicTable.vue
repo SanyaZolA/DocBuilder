@@ -2,9 +2,7 @@
     <hr />
     <button @click="toggleList">Открыть/закрыть таблицу произведений</button>
     <div v-if="isListVisible" class="work-list">
-      <h2>Таблица произведений</h2>
       <div v-for="(work, index) in formData.works" :key="index" class="work-row">
-        <hr />
         <h3>Произведение №{{ index + 1 }}</h3>
   
         <label>Название произведения:</label>
@@ -85,11 +83,9 @@
   </script>
   
   <style scoped>
-  .work-list {
-    border: #829cea 5px dashed;
-  }
   .work-row {
     margin-bottom: 20px;
+    border: #829cea 5px dashed;
   }
   
   input {
