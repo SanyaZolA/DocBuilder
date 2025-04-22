@@ -6,6 +6,7 @@
         <button @click="goToDocument(doc.internalName)" class="document-list__button">
           {{ doc.displayName }}
         </button>
+        <button class="document-list__button" type="button" disabled>send</button>
       </li>
     </ul>
   </div>
@@ -25,6 +26,25 @@ const goToDocument = (internalName: string) => {
 
 <style scoped>
 /* Стили для документа */
+
+button:disabled {
+  background-color: #515050;
+  color: #666;
+  animation: none;
+  transform: none;
+  background-color: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+button:disabled:hover {
+  background-color: #ccc;
+  color: #3d3b3b;
+  animation: none;
+  transform: none;
+  background-color: none;
+}
+
 .document-list {
   padding: 20px;
   font-family: 'Arial', sans-serif;
