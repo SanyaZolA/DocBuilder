@@ -1,8 +1,8 @@
-name: Push to GHCR
+name: Build & Push to GHCR
 
 on:
   push:
-    branches: [GHCR-workflow]
+    branches: [main]
 
 permissions:
   packages: write
@@ -15,6 +15,12 @@ jobs:
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4
+
+    - name: Convert repo name to lowercase
+      id: vars
+      run: |
+        REPO_LC="${GITHUB_REPOSITORY,,}"
+        echo "repo_lc=$REPO_LC" >> $GITHUB_OUTPUT
 
     - name: Log in to GHCR
       uses: docker/login-action@v3
@@ -31,4 +37,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/${{ github.repository }}:latest
+        tags: ghcr.io/${{ steps.vars.outputs.repo_lc }}:latest
