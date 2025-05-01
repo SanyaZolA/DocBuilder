@@ -1,7 +1,6 @@
-# Используем официальный образ Node.js
-FROM node:20-alpine
+# Используем официальный образ Node.js для сборки
+FROM node:20-alpine AS build
 
-# Устанавливаем рабочую директорию
 WORKDIR /app
 
 # Копируем package.json и устанавливаем зависимости
@@ -11,11 +10,17 @@ RUN npm ci
 # Копируем исходники
 COPY . .
 
-# Собираем проект (если у тебя TypeScript, Webpack и т.п.)
-RUN npm run build
+# Собираем проект
+RUN npm run build  # Для Vue.js будет использоваться скрипт build из package.json
 
-# Порт, который приложение будет слушать
-EXPOSE 3000
+# Используем лёгкий веб-сервер для сервировки готовых файлов
+FROM nginx:alpine
 
-# Команда запуска (замени на своё, если нужно)
-CMD ["node", "dist/main.js"]
+# Копируем собранные файлы в папку Nginx
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Открываем порт 80
+EXPOSE 80
+
+# Запускаем Nginx
+CMD ["nginx", "-g", "daemon off;"]
