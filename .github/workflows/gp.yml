@@ -1,8 +1,8 @@
-name: Build & Push to GHCR
+name: Push to GHCR
 
 on:
   push:
-    branches: [main]
+    branches: [GHCR-workflow]
 
 permissions:
   packages: write
