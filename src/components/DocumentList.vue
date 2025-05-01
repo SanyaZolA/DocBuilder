@@ -1,6 +1,6 @@
 <template>
   <div class="document-list">
-    <h1>Выберите шаблон</h1>
+    <h1>Выберите шаблонc</h1>
     <ul class="document-list__items">
       <li v-for="(doc, index) in documentList" :key="index" class="document-list__item">
         <button @click="goToDocument(doc.internalName)" class="document-list__button">
