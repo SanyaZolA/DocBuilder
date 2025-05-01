@@ -2,9 +2,9 @@ name: Build & Lint & Docker
 
 on:
   push:
-    branches: [main]
+    branches: [dokerize]
   pull_request:
-    branches: [main]
+    branches: [dokerize]
 
 jobs:
   build:
