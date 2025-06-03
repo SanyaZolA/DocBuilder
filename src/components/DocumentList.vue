@@ -1,13 +1,13 @@
 <template>
   <div class="document-list">
-    <h1>Выберите шаблонc</h1>
+    <h1>Выберите шаблон</h1>
     <ul class="document-list__items">
       <li v-for="(doc, index) in documentList" :key="index" class="document-list__item">
         <button @click="goToDocument(doc.internalName)" class="document-list__button">
           {{ doc.displayName }}
         </button>
-        <button class="document-list__button" type="button" disabled>send</button>
       </li>
+      <button class="document-list__button" type="button" disabled>Договор лицензии</button>
     </ul>
   </div>
 </template>
@@ -19,13 +19,12 @@ import { documentList } from '../data/documentList';
 const router = useRouter();
 
 const goToDocument = (internalName: string) => {
-  router.push(`/${internalName}`); // Переход на страницу документа
+  router.push(`/${internalName}`);
 };
 </script>
 
 
 <style scoped>
-/* Стили для документа */
 
 button:disabled {
   background-color: #515050;
