@@ -19,6 +19,7 @@ import { documentList } from '../data/documentList';
 const router = useRouter();
 
 const goToDocument = (internalName: string) => {
+  console.log(`Переход к документу: ${internalName}`); // Логируем переход к документу
   router.push(`/${internalName}`);
 };
 </script>

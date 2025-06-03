@@ -2,36 +2,13 @@
   <div class="document-form">
     <h1>{{ displayName }}</h1>
 
-    <dodvies v-model="formData"/>
-    <MusicTable v-model="formData" />
-
+    <Doc_details v-model="formData"/>
+    <Doc_musicTable v-model="formData" />
     <div class="formAll">
-      <div class="form">
-        <hr />
-        <h2>Лицензиар</h2>
-        <label for="name_licensor">ФИО</label>
-        <input type="text" v-model="formData.name_licensor" />
-
-        <label for="last_name">Псевдоним</label>
-        <input type="text" v-model="formData.last_name" placeholder="Babangida"/>
-
-        <label for="age">Возраст</label>
-        <input type="number" v-model="formData.age" />
-      </div>
-
-      <div class="form">
-        <hr />
-        <h2>Лицензит</h2>
-        <label for="first_name">ФИО</label>
-        <input type="text" v-model="formData.name_licensor" />
-
-        <label for="last_name">Псевдоним</label>
-        <input type="text" v-model="formData.last_name" placeholder="Babangida" />
-
-        <label for="age">Возраст</label>
-        <input type="number" v-model="formData.age" />
-      </div>
+      <Doc_licensor v-model="formData" />
+      <Doc_licensee_ML v-model="formData" />
     </div>
+
 
     <button @click="generateDocument">Создание документа</button>
     </div>
@@ -39,22 +16,23 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { useRoute } from 'vue-router'; // Импортируем useRoute для получения параметров маршрута
 import PizZip from 'pizzip';
 import Docxtemplater from 'docxtemplater';
 import { saveAs } from 'file-saver';
 import { documentList } from '../data/documentList'; // Подключаем список документов
-import dodvies from '../views/dodvies.vue';
-import MusicTable from '../views/musicTable.vue';
+import Doc_details from '../components/docBlocks/Doc_details.vue';
+import Doc_musicTable from '../components/docBlocks/Doc_musicTable.vue';
+import Doc_licensee_ML from '../components/docBlocks/licensee/Doc_licensee_ML.vue';
+import Doc_licensor from '../components/docBlocks/licensee/Doc_licensor.vue';
 
-const route = useRoute(); // Получаем доступ к параметрам маршрута
-
-const internalName = route.params.internalName as string; // Параметр маршрута fileName
+const internalName = 'Doc_Agreement_copyright.docx'; // Параметр маршрута fileName
 
 const formData = ref({
   name_licensor: '',
-  last_name: '',
-  age: '',
+  name_licensee: 'Александр Иванов',
+  last_name: 'Babangida',
+  age: 30,
+  inn: '1234567890',
 });
 
 // Вычисляем отображаемое имя документа
