@@ -6,6 +6,7 @@
     <Doc_musicTable_alienation_bit v-model="formData" />
     <div class="formAll">
       <Doc_copyright_holder v-model="formData" />
+      <div class="strelf">→</div>
       <Doc_acquirer v-model="formData" />
     </div>
 
@@ -134,11 +135,20 @@ input::placeholder {
 .formAll {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 0px;
 }
 
 .formAll .form {
   flex: 1;
+}
+
+.strelf {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  color: #7f8c8d;
+  width: 50px;
+  margin-top: 24px;
 }
 
 button {

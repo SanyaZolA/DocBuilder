@@ -10,7 +10,7 @@
 </template>
   
 <script setup lang="ts">
-  import { ref, watch } from 'vue';
+  import { reactive, watch } from 'vue';
   
   const props = defineProps({
     modelValue: {
@@ -21,11 +21,15 @@
   
   const emit = defineEmits(['update:modelValue']);
   
-  const formData = ref({ ...props.modelValue });
+  const formData = reactive({ ...props.modelValue });
   
-  watch(formData.value, (newValue) => {
-    emit('update:modelValue', newValue);
-  });
+watch(() => props.modelValue, (newVal) => {
+  Object.assign(formData, newVal);
+}, { deep: true });
+
+watch(formData, (newVal) => {
+  emit('update:modelValue', { ...newVal });
+}, { deep: true });
   </script>
 
 
