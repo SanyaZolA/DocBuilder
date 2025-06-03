@@ -3,7 +3,7 @@
         <hr />
         <h2>Приобретатель</h2>
         <label for="name_acquirer">ФИО</label>
-        <input type="text" v-model="formData.name_acquirer" />
+        <input type="text" v-model="formData.name_acquirer" placeholder="Иванов Иван Иванович" />
         <label for="inn_acquirer">ИНН</label>
         <input type="text" v-model="formData.inn_acquirer" />
       </div>

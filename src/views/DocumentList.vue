@@ -3,7 +3,7 @@
     <h1>Выберите шаблон</h1>
     <ul class="document-list__items">
       <li v-for="(doc, index) in documentList" :key="index" class="document-list__item">
-        <button @click="goToDocument(doc.internalName)" class="document-list__button">
+        <button @click="goToDocument(doc.internalName)" class="document-list__button" :disabled="doc.id === 1">
           {{ doc.displayName }}
         </button>
       </li>

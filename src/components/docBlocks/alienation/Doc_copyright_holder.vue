@@ -3,7 +3,7 @@
         <hr />
         <h2>Правообладатель</h2>
         <label for="name_copyright_holder">ФИО</label>
-        <input type="text" v-model="formData.name_copyright_holder" />
+        <input type="text" v-model="formData.name_copyright_holder" placeholder="Иванов Иван Иванович" />
         <label for="inn_copyright_holder">ИНН</label>
         <input type="text" v-model="formData.inn_copyright_holder" />
       </div>

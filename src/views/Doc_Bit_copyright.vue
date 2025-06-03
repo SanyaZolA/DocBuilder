@@ -67,7 +67,13 @@ const generateDocument = async () => {
     doc.render();
 
     const output = doc.getZip().generate({ type: 'blob' });
-    saveAs(output, `${displayName.value} ${formData.value.name_copyright_holder}.docx`);  
+    saveAs(output, `${displayName.value} ${formData.value.name_copyright_holder}.docx`); 
+    formData.value = {
+    name_copyright_holder: '',
+    inn_copyright_holder: '',
+    name_acquirer: '',
+    inn_acquirer: ''
+}; 
   } catch (error) {
     console.error('Ошибка при генерации документа:', error);
   }
