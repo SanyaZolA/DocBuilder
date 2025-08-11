@@ -3,4 +3,5 @@ export const defaultFormData = {
   last_name: 'Babangida',
   age: 30,
   inn: '1234567890',
+  date: '2023-10-01',
 };

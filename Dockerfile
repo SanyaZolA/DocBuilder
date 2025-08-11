@@ -11,7 +11,7 @@ RUN npm ci
 COPY . .
 
 # Собираем проект
-RUN npm run build  # Для Vue.js будет использоваться скрипт build из package.json
+RUN npm run build
 
 # Используем лёгкий веб-сервер для сервировки готовых файлов
 FROM nginx:alpine

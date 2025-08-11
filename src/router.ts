@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import DocumentList from './views/DocumentList.vue'; // Список документов
-import Doc_Agreement_copyright from './views/Doc_Agreement_copyright.vue';  // Страница создания документа
-import Doc_Bit_copyright from './views/Doc_Bit_copyright.vue';  // Страница создания документа
+import Doc_personal_data from './views/Doc_personal_data.vue';  // Страница создания документа
 
 
 
@@ -12,12 +11,8 @@ const routes = [
     component: DocumentList
   },
   {
-    path: '/Doc_Agreement_copyright.docx',
-    component: Doc_Agreement_copyright,
-  },
-    {
-    path: '/Doc_Bit_copyright.docx',
-    component: Doc_Bit_copyright,
+    path: '/Doc_personal_data.docx',
+    component: Doc_personal_data,
   }
 ];
 

@@ -1,29 +1,21 @@
 <template>
     <div class="form">
         <hr />
-      <label for="first_name">Номер договора</label>
-      <input type="text" v-model="inputData.name_licensor" placeholder="01/01/25-ВВП(ФИО)">
-
-    <div class="doc_date">
-    <div class="doc_date2">
-      <label for="last_name">Дата (день) </label>
-      <input type="text" v-model="inputData.last_name" placeholder="01"/>
-      </div>
-      <div class="doc_date2">
-      <label for="last_name">Дата (месяц)</label>
-      <input type="text" v-model="inputData.last_name" placeholder="декабря"/>
-      </div>
-      <div class="doc_date2">
-      <label for="last_name">Дата (год) </label>
-      <input type="text" v-model="inputData.last_name" placeholder="2025"/>
-      </div>
-    </div>
-      <label for="age">Срок договора (дата окончания)</label>
-      <input type="number" v-model="inputData.age" placeholder="31 декабря 2025"/>
-    </div>
+      <label for="Myname">ФИО</label>
+      <input type="text" v-model="inputData.Myname" placeholder="Иванов Александр Александрович"/>
+        <hr />
+      <label for="optionDocument">Вид документа</label>
+      <input type="text" v-model="inputData.optionDocument" placeholder="паспорт"/>
+      <label for="numberDocument">Номер документа</label>
+      <input type="number" v-model="inputData.numberDocument" placeholder="5476 945758"/>
+      <label for="stateDocument">Кем выдан</label>
+      <input type="text" v-model="inputData.stateDocument" placeholder="МВД России"/>
+      <label for="addressDocument">Адрес регистрации</label>
+      <input type="text" v-model="inputData.addressDocument" placeholder="г. Санкт-Петербург, ул. Пушкина, д. 1"/>
+  </div>
   </template>
   
-  <script setup lang="ts">
+  <script setup lang="ts">  
   import { ref, watch } from 'vue';
   
   const props = defineProps({

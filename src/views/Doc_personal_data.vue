@@ -3,12 +3,6 @@
     <h1>{{ displayName }}</h1>
 
     <Doc_details v-model="formData"/>
-    <Doc_musicTable v-model="formData" />
-    <div class="formAll">
-      <Doc_licensor v-model="formData" />
-      <Doc_licensee_ML v-model="formData" />
-    </div>
-
 
     <button @click="generateDocument">Создание документа</button>
     </div>
@@ -21,18 +15,14 @@ import Docxtemplater from 'docxtemplater';
 import { saveAs } from 'file-saver';
 import { documentList } from '../data/documentList'; // Подключаем список документов
 import Doc_details from '../components/docBlocks/Doc_details.vue';
-import Doc_musicTable from '../components/docBlocks/Doc_musicTable.vue';
-import Doc_licensee_ML from '../components/docBlocks/licensee/Doc_licensee_ML.vue';
-import Doc_licensor from '../components/docBlocks/licensee/Doc_licensor.vue';
-
-const internalName = 'Doc_Agreement_copyright.docx'; // Параметр маршрута fileName
+const internalName = 'Doc_personal_data.docx'; // Параметр маршрута fileName
 
 const formData = ref({
-  name_licensor: '',
-  name_licensee: 'Александр Иванов',
-  last_name: 'Babangida',
-  age: 30,
-  inn: '1234567890',
+  Myname: '',
+  optionDocument: '',
+  numberDocument: '',
+  stateDocument: '',
+  addressDocument: '',
 });
 
 // Вычисляем отображаемое имя документа
@@ -67,7 +57,7 @@ const generateDocument = async () => {
     doc.render();
 
     const output = doc.getZip().generate({ type: 'blob' });
-    saveAs(output, `${displayName.value} ${formData.value.name_licensor}.docx`);  
+    saveAs(output, `${displayName.value}.docx`);  
   } catch (error) {
     console.error('Ошибка при генерации документа:', error);
   }

@@ -7,7 +7,6 @@
           {{ doc.displayName }}
         </button>
       </li>
-      <button class="document-list__button" type="button" disabled>Договор лицензии</button>
     </ul>
   </div>
 </template>
