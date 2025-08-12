@@ -2,7 +2,7 @@
 
 PET-проект для создания договоров на основе предустановленных шаблонов.
 
-[Демо-страница](https://doc-builder-6hgg2ems8-alexandrs-projects-58850a68.vercel.app/)
+[Демо-страница](https://doc-builder-seven.vercel.app/)
 
 ![Главная страница](./images/DocBuilder.jpg)
 
